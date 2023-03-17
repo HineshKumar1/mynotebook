@@ -1,7 +1,7 @@
 const  connectToMongo = require('./db');
 const express = require('express');
 
-//Calling Database Connection
+//Calling Database Connection Function
 connectToMongo();
  
 const app = express()
