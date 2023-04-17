@@ -4,7 +4,11 @@ import NoteItem from './NoteItem';
 
 function Notes() {
     const context  = useContext(notecontext);
-    const {Notes} = context;
+    const {Notes,getNotes} = context;
+    useEffect(() => {
+      getNotes();  
+    },)
+    
   return (
     <>
       <div className='row my-3'>
