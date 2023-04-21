@@ -11,7 +11,7 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
 })
 
 //Route 2 :Post Add a New Notes using: Post 'api/notes/addnote' : no Login Required 
-router.get('/addnote', fetchuser, [
+router.post('/addnote', fetchuser, [
         //Valitidion for Fields through Express Validtion
         body('title', 'Enter a Valid title').isLength({ min: 3 }),
         body('description', 'Description Must be atleast 5 characters').isLength({ min: 3 }),], async (req, res) => {
