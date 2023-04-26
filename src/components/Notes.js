@@ -18,9 +18,12 @@ function Notes() {
   },)
 
   const ref = useRef(null)
+  const Closeref = useRef(null)
+
   const updateNote = (currentnote) => {
     ref.current.click();
     setnote({
+      id : currentnote._id,
       etitle : currentnote.title,
       edescription : currentnote.description,
       etag : currentnote.tag
@@ -33,8 +36,10 @@ function Notes() {
 });
   const handleclick = (e)=>{
     console.log("Updating note ",note)
-    e.preventDefault();
-    // EditNotes(note.title,note.description,note.tag)
+    // e.preventDefault();
+    handleClose();
+    Closeref.current.click();
+    EditNotes(note.id,note.etitle,note.edescription,note.etag)
 
 }
 const onchange = (e)=>{
@@ -70,7 +75,7 @@ const onchange = (e)=>{
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button  variant="primary" onClick={handleclick}>
+          <Button ref={Closeref}  variant="primary" onClick={handleclick}>
             Update
           </Button>
         </Modal.Footer>
