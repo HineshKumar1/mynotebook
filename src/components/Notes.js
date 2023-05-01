@@ -81,6 +81,9 @@ const onchange = (e)=>{
         </Modal.Footer>
       </Modal>
       <div className='row my-3'>
+        <div className="container">
+        {Notes.length===0 && "No Notes to Display"}
+        </div>
         {Notes.map((Notes) => {
           return <NoteItem key={Notes._id} updateNote={updateNote} note={Notes} />
         })}

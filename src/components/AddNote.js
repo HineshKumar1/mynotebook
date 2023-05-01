@@ -14,6 +14,7 @@ function AddNote() {
     });
     const handleclick = (e)=>{
         e.preventDefault();
+        console.log("Hinesh Kumar");
         AddNotes(note.title,note.description,note.tag)
 
     }
