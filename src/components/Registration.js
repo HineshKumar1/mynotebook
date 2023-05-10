@@ -4,7 +4,9 @@ import Form from 'react-bootstrap/Form';
 
 function Registration() {
   return (
-    <div>This Is Registration</div>
+    <>
+    
+    </>
   )
 }
 
