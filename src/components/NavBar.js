@@ -22,12 +22,18 @@ function NavBar(props) {
       <li className="nav-item">
         <Link className={`nav-link ${location.pathname==="/about"? "active": ""}`} to="/about">About us </Link>
       </li>
-      <li className="nav-item dropdown">
-        <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </Link>
+      <li>
       </li>
     </ul>
+    <form  className="d-flex">
+    <li className="nav-item">
+    <Link role='button' to='/login' className="btn btn-primary">Login</Link>
+    </li>
+    <li className="nav-item">
+      <Link role='button' to='/Registration' className="btn btn-primary">SignUp</Link>
+      </li>
+    </form>
+   
   </div>
 </nav>
     </>
