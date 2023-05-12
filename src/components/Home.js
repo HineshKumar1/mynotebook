@@ -1,14 +1,17 @@
 import React from 'react'
 import AddNote from './AddNote';
 import Notes from './Notes';
-function Home() {
+import { useState } from 'react';
+
+function Home(props) {
+  const {showAlert} = props;
   return (
     <>
     <br />
-    <AddNote/>
+    <AddNote showAlert={showAlert}/>
     <hr />
     <h2 className='helo'>Your Notes</h2>
-    <Notes></Notes>
+    <Notes showAlert={showAlert}></Notes>
     </>
   )
 }

@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import {  useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
+const Login = (props) => {
   const navigate = useNavigate();
     const [credential, setcredential] = useState({
         email :" ",
@@ -28,9 +28,10 @@ const Login = () => {
         if(json.success){
             //Save the Auth token & Redirect:
             localStorage.setItem('token',json.authtoken);
+            props.showAlert("Successfully Logedin","success")
             navigate('/')
         }else{
-          alert("Invalid Credentials")
+          props.showAlert("Invalid Credinatial","danger")
         }
         console.log(json);
     }

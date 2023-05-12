@@ -3,7 +3,7 @@ import notecontext from '../context/notes/NoteContext'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function AddNote() {
+function AddNote(props) {
     const context  = useContext(notecontext);
     const {AddNotes} = context;
 
@@ -16,6 +16,7 @@ function AddNote() {
         e.preventDefault();
         console.log("Hinesh Kumar");
         AddNotes(note.title,note.description,note.tag)
+        props.showAlert("Added Successfully","primary")
 
     }
     const onchange = (e)=>{

@@ -8,6 +8,7 @@ const NoteItem = (props) => {
   const  {note,updateNote} = props;
   const context  = useContext(notecontext);
   const {DeleteNotes} = context;
+  
   return (
     <>
         <div className='col-md-3'>
@@ -15,7 +16,8 @@ const NoteItem = (props) => {
         <Card.Body>
         <div className="d-flex align-items-center">
         <Card.Title>{note.title}</Card.Title> 
-        <i class="fa-solid fa-trash mx-2" onClick={()=>{DeleteNotes(note._id)}}></i>
+        <i class="fa-solid fa-trash mx-2" onClick={()=>{DeleteNotes(note._id); 
+          props.showAlert("Deleted Successfully","success")}}></i>
         <i class="fa-solid fa-pen-to-square mx-2" onClick={()=>{updateNote(note)}}></i>
         </div>
         <Card.Text>

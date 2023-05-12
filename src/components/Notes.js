@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function Notes() {
+function Notes(props) {
   const context = useContext(notecontext);
   const { Notes, getNotes,EditNotes } = context;
 
@@ -28,6 +28,7 @@ function Notes() {
       edescription : currentnote.description,
       etag : currentnote.tag
     })
+    props.showAlert("Successfully Updated","success")
   }
   const [note, setnote] = useState({
     etitle : " ",
@@ -39,7 +40,8 @@ function Notes() {
     // e.preventDefault();
     handleClose();
     Closeref.current.click();
-    EditNotes(note.id,note.etitle,note.edescription,note.etag)
+    EditNotes(note.id,note.etitle,note.edescription,note.etag);
+    props.showAlert("Updated Successfully","info")
 
 }
 const onchange = (e)=>{
@@ -85,7 +87,7 @@ const onchange = (e)=>{
         {Notes.length===0 && "No Notes to Display"}
         </div>
         {Notes.map((Notes) => {
-          return <NoteItem key={Notes._id} updateNote={updateNote} note={Notes} />
+          return <NoteItem key={Notes._id} updateNote={updateNote} showAlert={props.showAlert} note={Notes} />
         })}
       </div>
       <br />
