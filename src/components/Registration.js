@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 
-function Registration() {
+function Registration(props) {
   let navigator = useNavigate();
   const [Registration, setRegistration] = useState({
     name:" ",
@@ -25,15 +25,15 @@ const handleSubmit = async (e)=>{
         body: JSON.stringify({name: Registration.name ,email: Registration.email, password: Registration.password})
     });
     const json = await response.json()
-    console.log(json)
+    
     if(json.success){
         //Save the Auth token & Redirect:
-        // localStorage.setItem('token',json.authtoken);
-        alert("Sign Up Successful");
+        localStorage.setItem('token',json.authtoken);
+        props.showAlert("Successfully SignUp","success")
         navigator('/login')
         
     }else{
-      alert("Invalid Credentials")
+      props.showAlert("Invalid Credinatial","danger")
     }
     console.log(json);
 }
