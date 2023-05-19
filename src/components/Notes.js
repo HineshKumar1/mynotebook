@@ -4,8 +4,11 @@ import NoteItem from './NoteItem';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
+
 
 function Notes(props) {
+  let navigate = useNavigate();
   const context = useContext(notecontext);
   const { Notes, getNotes,EditNotes } = context;
 
@@ -14,7 +17,11 @@ function Notes(props) {
   const handleShow = () => setShow(true);
  
   useEffect(() => {
-    getNotes();
+    if(localStorage.getItem('token')){
+      getNotes();
+    }else{
+      navigate('/login');
+    }
   },)
 
   const ref = useRef(null)

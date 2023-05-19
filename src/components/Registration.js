@@ -28,7 +28,7 @@ const handleSubmit = async (e)=>{
     
     if(json.success){
         //Save the Auth token & Redirect:
-        localStorage.setItem('token',json.authtoken);
+        // localStorage.setItem('token',json.authtoken);
         props.showAlert("Successfully SignUp","success")
         navigator('/login')
         
